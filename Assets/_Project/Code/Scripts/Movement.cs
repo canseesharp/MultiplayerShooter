@@ -1,3 +1,4 @@
+using MultiplayerShooter.SO;
 using UnityEngine;
 
 namespace MultiplayerShooter
@@ -8,11 +9,11 @@ namespace MultiplayerShooter
         private readonly Transform _body;
         private readonly float _speed;
 
-        public Movement(CharacterControllerAdapter controller, Transform body, float speed)
+        public Movement(CharacterControllerAdapter controller, Transform body, PlayerData data)
         {
             _controller = controller;
             _body = body;
-            _speed = speed;
+            _speed = data.Speed;
         }
 
         public void Move(Vector3 inputDirection)
