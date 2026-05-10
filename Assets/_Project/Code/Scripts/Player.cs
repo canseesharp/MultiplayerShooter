@@ -1,13 +1,16 @@
 using MultiplayerShooter.SO;
 using UnityEngine;
+using Unity.Cinemachine;
+using Unity.Netcode;
 
 namespace MultiplayerShooter
 {
     [RequireComponent(typeof(CharacterControllerAdapter))]
-    public class Player : MonoBehaviour
+    public class Player : NetworkBehaviour
     {
         [SerializeField] private PlayerData _data;
         [SerializeField] private Animator _animator;
+        [SerializeField] private CinemachineCamera _camera;
 
         private PlayerInput _input;
         private CharacterControllerAdapter _controller;
@@ -20,10 +23,20 @@ namespace MultiplayerShooter
         {
             _controller = GetComponent<CharacterControllerAdapter>();
             _input = new();
-            _looking = new(transform, Camera.main.transform, _data);
+            _looking = new(transform, _camera.transform, _data);
             _movement = new(_controller, transform, _data);
             _jump = new(_controller, _data);
             _playerAnimator = new(_animator);
+        }
+
+        public override void OnNetworkSpawn()
+        {
+            if (IsOwner == false)
+            {
+                enabled = false;
+                _camera.gameObject.SetActive(false);
+                _controller.enabled = false;
+            }
         }
 
         private void OnEnable()
