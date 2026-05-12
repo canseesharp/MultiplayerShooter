@@ -12,6 +12,7 @@ namespace MultiplayerShooter
         public Vector2 LookingDelta => _inputActions.Player.Looking.ReadValue<Vector2>();
 
         public event Action Jumped;
+        public event Action Shot;
 
         public void Enable()
         {
@@ -19,6 +20,7 @@ namespace MultiplayerShooter
             Cursor.visible = false;
             _inputActions.Enable();
             _inputActions.Player.Jump.performed += OnJump;
+            _inputActions.Player.Shoot.performed += OnShoot;
         }
 
         public void Disable()
@@ -27,8 +29,11 @@ namespace MultiplayerShooter
             Cursor.visible = true;
             _inputActions.Disable();
             _inputActions.Player.Jump.performed -= OnJump;
+            _inputActions.Player.Shoot.performed -= OnShoot;
         }
 
         private void OnJump(InputAction.CallbackContext callbackContext) => Jumped.Invoke();
+
+        private void OnShoot(InputAction.CallbackContext callbackContext) => Shot.Invoke();
     }
 }
