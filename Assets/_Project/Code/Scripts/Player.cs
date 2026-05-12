@@ -5,12 +5,13 @@ using Unity.Netcode;
 
 namespace MultiplayerShooter
 {
-    [RequireComponent(typeof(CharacterControllerAdapter))]
+    [RequireComponent(typeof(CharacterControllerAdapter), typeof(WeaponController))]
     public class Player : NetworkBehaviour
     {
         [SerializeField] private PlayerData _data;
         [SerializeField] private Animator _animator;
         [SerializeField] private CinemachineCamera _camera;
+        [SerializeField] private WeaponData _startWeapon;
 
         private PlayerInput _input;
         private CharacterControllerAdapter _controller;
@@ -18,6 +19,7 @@ namespace MultiplayerShooter
         private Looking _looking;
         private Movement _movement;
         private Jump _jump;
+        private WeaponController _weaponController;
 
         private void Awake()
         {
@@ -27,6 +29,8 @@ namespace MultiplayerShooter
             _movement = new(_controller, transform, _data);
             _jump = new(_controller, _data);
             _playerAnimator = new(_animator);
+            _weaponController = GetComponent<WeaponController>();
+            _weaponController.EquipWeapon(_startWeapon);
         }
 
         public override void OnNetworkSpawn()
@@ -43,12 +47,14 @@ namespace MultiplayerShooter
         {
             _input.Enable();
             _input.Jumped += OnJump;
+            _input.Shot += _weaponController.Use;
         }
 
         private void OnDisable()
         {
             _input.Disable();
             _input.Jumped -= OnJump;
+            _input.Shot -= _weaponController.Use;
         }
 
         private void Update()
