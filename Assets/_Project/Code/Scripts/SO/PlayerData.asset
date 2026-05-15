@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b74b63c2d29275e48892a61561993b9c, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: Assembly-CSharp::MultiplayerShooter.SO.PlayerData
+  <Health>k__BackingField: 100
   <Speed>k__BackingField: 5
   <MouseSensativity>k__BackingField: 50
   <JumpHeight>k__BackingField: 2
