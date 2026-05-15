@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PistolData
   m_EditorClassIdentifier: Assembly-CSharp::MultiplayerShooter.SO.WeaponData
   <Name>k__BackingField: Pistol
-  <Damage>k__BackingField: 10
+  <Damage>k__BackingField: 25
   <Range>k__BackingField: 100
   <Prefab>k__BackingField: {fileID: 5775000347998946078, guid: 9c7edd3dae07c8c5ba74bd8ffe2d99d4, type: 3}
