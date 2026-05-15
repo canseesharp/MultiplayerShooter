@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 8336310556467813070}
   - component: {fileID: 7481751338192600877}
   - component: {fileID: 6983972938341856733}
+  - component: {fileID: 6535014541560013505}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -219,7 +220,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.1
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -387,6 +388,20 @@ MonoBehaviour:
       Synchronize: 1
       ParameterType: 4
   AnimatorParametersExpanded: 0
+--- !u!114 &6535014541560013505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2729214660791370500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df5e4a8ac887e54e9131d8319cb77a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MultiplayerShooter.Health
+  ShowTopMostFoldoutHeaderGroup: 1
+  _data: {fileID: 11400000, guid: 78cb1dce14ba8ae5d824f3bb9446091e, type: 2}
 --- !u!1 &4968818156930250854
 GameObject:
   m_ObjectHideFlags: 0
