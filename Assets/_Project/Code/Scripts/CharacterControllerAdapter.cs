@@ -12,9 +12,21 @@ namespace MultiplayerShooter
 
         public void Move(Vector3 direction) => _frameMovement += direction;
 
+        public void EnableOnlyController() => _characterController.enabled = true;
+
         private void Awake()
         {
             _characterController = GetComponent<CharacterController>();
+        }
+
+        private void OnEnable()
+        {
+            _characterController.enabled = true;
+        }
+
+        private void OnDisable()
+        {
+            _characterController.enabled = false;
         }
 
         private void ApplyMovement()
