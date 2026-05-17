@@ -2,6 +2,6 @@ namespace MultiplayerShooter
 {
     public interface IDamageable
     {
-        void TakeDamageRpc(int damage);
+        void TakeDamage(int damage);
     }
 }
