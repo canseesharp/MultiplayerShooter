@@ -13,7 +13,7 @@ namespace MultiplayerShooter
 
             if (hitInfo.transform.TryGetComponent<IDamageable>(out var health))
             {
-                health.TakeDamageRpc(Data.Damage);
+                health.TakeDamage(Data.Damage);
             }
         }
     }
