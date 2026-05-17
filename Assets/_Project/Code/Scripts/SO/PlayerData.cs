@@ -11,5 +11,6 @@ namespace MultiplayerShooter.SO
         [field: SerializeField] public float JumpHeight { get; private set; }
         [field: SerializeField] public float JumpDuration { get; private set; }
         [field: SerializeField] public AnimationCurve JumpCurve { get; private set; }
+        [field: SerializeField] public GameObject Prefab { get; private set; }
     }
 }
