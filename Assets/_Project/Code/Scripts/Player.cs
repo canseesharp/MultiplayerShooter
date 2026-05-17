@@ -35,12 +35,10 @@ namespace MultiplayerShooter
 
         public override void OnNetworkSpawn()
         {
-            if (IsOwner == false)
-            {
-                enabled = false;
-                _camera.gameObject.SetActive(false);
-                _controller.enabled = false;
-            }
+            enabled = IsOwner;
+            _camera.gameObject.SetActive(IsOwner);
+            _controller.enabled = IsOwner;
+            _controller.EnableOnlyController();
         }
 
         private void OnEnable()

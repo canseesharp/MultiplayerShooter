@@ -166,14 +166,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5966592002021451165}
-  - component: {fileID: 7321676451465770084}
-  - component: {fileID: 8050407112949357306}
   - component: {fileID: 2765075492039152569}
-  - component: {fileID: 3337043019201975212}
-  - component: {fileID: 8336310556467813070}
   - component: {fileID: 7481751338192600877}
   - component: {fileID: 6983972938341856733}
+  - component: {fileID: 7321676451465770084}
+  - component: {fileID: 8050407112949357306}
+  - component: {fileID: 3337043019201975212}
   - component: {fileID: 6535014541560013505}
+  - component: {fileID: 8336310556467813070}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -199,43 +199,6 @@ Transform:
   - {fileID: 2825654143270283420}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &7321676451465770084
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2729214660791370500}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.1
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8050407112949357306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2729214660791370500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b31c911d616d803887679cd09758957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MultiplayerShooter.PlayerController
 --- !u!114 &2765075492039152569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,37 +224,6 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &3337043019201975212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2729214660791370500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8cf614c9c40fa9d4b438fb85fa4931f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MultiplayerShooter.WeaponController
-  _mountPoint: {fileID: 5817167486685511728}
-  _cameraTransfrom: {fileID: 198222508190571675}
---- !u!114 &8336310556467813070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2729214660791370500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b2a406bc9a8b9daebd5852a7cb650f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MultiplayerShooter.Player
-  ShowTopMostFoldoutHeaderGroup: 1
-  _data: {fileID: 11400000, guid: 78cb1dce14ba8ae5d824f3bb9446091e, type: 2}
-  _animator: {fileID: 373422162214264515}
-  _camera: {fileID: 5293878793087919734}
-  _startWeapon: {fileID: 11400000, guid: 42d51ff9b99617aaaa694d2be511f1d7, type: 2}
 --- !u!114 &7481751338192600877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +320,57 @@ MonoBehaviour:
       Synchronize: 1
       ParameterType: 4
   AnimatorParametersExpanded: 0
+--- !u!143 &7321676451465770084
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2729214660791370500}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.1
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8050407112949357306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2729214660791370500}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b31c911d616d803887679cd09758957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MultiplayerShooter.PlayerController
+--- !u!114 &3337043019201975212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2729214660791370500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8cf614c9c40fa9d4b438fb85fa4931f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MultiplayerShooter.WeaponController
+  _mountPoint: {fileID: 5817167486685511728}
+  _cameraTransfrom: {fileID: 198222508190571675}
 --- !u!114 &6535014541560013505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -401,7 +384,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MultiplayerShooter.Health
   ShowTopMostFoldoutHeaderGroup: 1
+--- !u!114 &8336310556467813070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2729214660791370500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b2a406bc9a8b9daebd5852a7cb650f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MultiplayerShooter.Player
+  ShowTopMostFoldoutHeaderGroup: 1
   _data: {fileID: 11400000, guid: 78cb1dce14ba8ae5d824f3bb9446091e, type: 2}
+  _animator: {fileID: 373422162214264515}
+  _camera: {fileID: 5293878793087919734}
+  _startWeapon: {fileID: 11400000, guid: 42d51ff9b99617aaaa694d2be511f1d7, type: 2}
 --- !u!1 &4968818156930250854
 GameObject:
   m_ObjectHideFlags: 0
