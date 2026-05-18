@@ -13,7 +13,8 @@ namespace MultiplayerShooter
             _value.Value = health;
         }
 
-        public void TakeDamage(int damage)
+        [Rpc(SendTo.Server)]
+        public void TakeDamageRpc(int damage)
         {
             _value.Value -= damage;
 
