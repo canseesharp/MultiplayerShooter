@@ -10,7 +10,7 @@ namespace MultiplayerShooter
 
         private GameObject _currentWeapon;
         private IWeapon _weapon;
-        private WeaponFactory _weaponFactory = new();
+        private readonly WeaponFactory _weaponFactory = new();
 
         public void Use()
         {
