@@ -6,6 +6,8 @@ namespace MultiplayerShooter
     {
         public override void Use()
         {
+            WeaponAnimator.PlayShotRpc();
+
             if (Physics.Raycast(CameraTransform.position, CameraTransform.forward, out var hitInfo, Data.Range) == false)
             {
                 return;
