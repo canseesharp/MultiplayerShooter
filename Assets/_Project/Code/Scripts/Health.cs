@@ -6,7 +6,11 @@ namespace MultiplayerShooter
     {
         private readonly NetworkVariable<int> _value = new();
 
-        public int Value => _value.Value;
+        public event NetworkVariable<int>.OnValueChangedDelegate ValueChanged
+        {
+            add => _value.OnValueChanged += value;
+            remove => _value.OnValueChanged -= value;
+        }
 
         public void Init(int health)
         {
@@ -18,7 +22,7 @@ namespace MultiplayerShooter
         {
             _value.Value -= damage;
 
-            if (Value <= 0)
+            if (_value.Value <= 0)
             {
                 Destroy(gameObject);
             }
