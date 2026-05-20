@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 3337043019201975212}
   - component: {fileID: 6535014541560013505}
   - component: {fileID: 8336310556467813070}
+  - component: {fileID: 1471336244273643833}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -541,6 +542,22 @@ MonoBehaviour:
   _animator: {fileID: 373422162214264515}
   _camera: {fileID: 5293878793087919734}
   _startWeapon: {fileID: 11400000, guid: 42d51ff9b99617aaaa694d2be511f1d7, type: 2}
+--- !u!114 &1471336244273643833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2729214660791370500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90d6f36930e6bbeb9753655a40ed3a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MultiplayerShooter.PlayerDamageFeedback
+  _health: {fileID: 6535014541560013505}
+  _cinemachinePerlin: {fileID: 2768744308236519837}
+  _shakeIntensity: 0.5
+  _feedbackDuration: 0.15
 --- !u!1 &4968818156930250854
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,6 +568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 198222508190571675}
   - component: {fileID: 5293878793087919734}
+  - component: {fileID: 2768744308236519837}
   m_Layer: 0
   m_Name: CinemachineCamera
   m_TagString: Untagged
@@ -616,6 +634,23 @@ MonoBehaviour:
       BarrelClipping: 0.25
       Anamorphism: 0
   BlendHint: 0
+--- !u!114 &2768744308236519837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4968818156930250854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineBasicMultiChannelPerlin
+  NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  PivotOffset: {x: 0, y: 0, z: 0}
+  AmplitudeGain: 0
+  FrequencyGain: 5
+  m_NoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &5194530144434488427
 GameObject:
   m_ObjectHideFlags: 0
