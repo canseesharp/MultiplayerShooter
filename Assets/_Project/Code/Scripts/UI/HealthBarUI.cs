@@ -3,7 +3,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MultiplayerShooter
+namespace MultiplayerShooter.UI
 {
     [RequireComponent(typeof(Slider))]
     public class HealthBarUI : NetworkBehaviour

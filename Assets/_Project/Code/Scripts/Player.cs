@@ -21,6 +21,14 @@ namespace MultiplayerShooter
         private Jump _jump;
         private WeaponController _weaponController;
 
+        public override void OnNetworkSpawn()
+        {
+            enabled = IsOwner;
+            _camera.gameObject.SetActive(IsOwner);
+            _controller.enabled = IsOwner;
+            _controller.EnableOnlyController();
+        }
+
         private void Awake()
         {
             _controller = GetComponent<CharacterControllerAdapter>();
@@ -31,14 +39,6 @@ namespace MultiplayerShooter
             _playerAnimator = new(_animator);
             _weaponController = GetComponent<WeaponController>();
             _weaponController.EquipWeapon(_startWeapon);
-        }
-
-        public override void OnNetworkSpawn()
-        {
-            enabled = IsOwner;
-            _camera.gameObject.SetActive(IsOwner);
-            _controller.enabled = IsOwner;
-            _controller.EnableOnlyController();
         }
 
         private void OnEnable()
