@@ -1,3 +1,4 @@
+using System;
 using Unity.Netcode;
 
 namespace MultiplayerShooter
@@ -12,6 +13,8 @@ namespace MultiplayerShooter
             remove => _value.OnValueChanged -= value;
         }
 
+        public event Action<Health> Dead;
+
         public void Init(int health)
         {
             _value.Value = health;
@@ -24,6 +27,7 @@ namespace MultiplayerShooter
 
             if (_value.Value <= 0)
             {
+                Dead?.Invoke(this);
                 Destroy(gameObject);
             }
         }
