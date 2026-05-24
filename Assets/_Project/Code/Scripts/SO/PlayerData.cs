@@ -6,6 +6,7 @@ namespace MultiplayerShooter.SO
     public class PlayerData : ScriptableObject
     {
         [field: SerializeField] public int Health { get; private set; }
+        [field: SerializeField] public float RespawnTime { get; private set; }
         [field: SerializeField] public float Speed { get; private set; }
         [field: SerializeField] public float MouseSensativity { get; private set; }
         [field: SerializeField] public float JumpHeight { get; private set; }

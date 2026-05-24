@@ -9,7 +9,6 @@ namespace MultiplayerShooter
         [SerializeField] private PlayerData _playerData;
         [SerializeField] private Transform[] _spawnPoints;
 
-        private const float _respawnTime = 5f;
         private PlayerFactory _playerFactory;
 
         public override void OnNetworkSpawn()
@@ -34,7 +33,7 @@ namespace MultiplayerShooter
         {
             playerHealth.Dead -= OnPlayerDead;
             ulong id = playerHealth.GetComponent<NetworkObject>().OwnerClientId;
-            await Awaitable.WaitForSecondsAsync(_respawnTime);
+            await Awaitable.WaitForSecondsAsync(_playerData.RespawnTime);
             SpawnPlayer(id);
         }
     }
