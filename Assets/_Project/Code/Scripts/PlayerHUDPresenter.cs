@@ -11,7 +11,7 @@ namespace MultiplayerShooter
         [SerializeField] private PlayerData _playerData;
         [SerializeField] private Health _health;
 
-        [Inject] private HealthBarUI _healthBar;
+        [Inject] private HUD _hud;
 
         public override void OnNetworkSpawn()
         {
@@ -25,17 +25,26 @@ namespace MultiplayerShooter
 
         private void OnEnable()
         {
+            _hud.SetActive(true);
             _health.ValueChanged += OnHealthChanged;
+            _health.Dead += OnDead;
         }
 
         private void OnDisable()
         {
+            _hud.SetActive(!IsOwner);
             _health.ValueChanged -= OnHealthChanged;
+            _health.Dead -= OnDead;
         }
 
         private void OnHealthChanged(int previous, int current)
         {
-            _healthBar.SetHealth(_playerData.Health, current);
+            _hud.HealthBarUI.SetHealth(_playerData.Health, current);
+        }
+
+        private void OnDead(Health heatlh)
+        {
+            _hud.RespawnTimerUI.StartTimer(_playerData.RespawnTime);
         }
     }
 }
