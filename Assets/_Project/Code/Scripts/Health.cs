@@ -27,9 +27,15 @@ namespace MultiplayerShooter
 
             if (_value.Value <= 0)
             {
-                Dead?.Invoke(this);
+                InvokeDeadRpc();
                 Destroy(gameObject);
             }
+        }
+
+        [Rpc(SendTo.Everyone)]
+        private void InvokeDeadRpc()
+        {
+            Dead?.Invoke(this);
         }
     }
 }
