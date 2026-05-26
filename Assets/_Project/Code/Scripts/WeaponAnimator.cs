@@ -1,20 +1,16 @@
-using Unity.Netcode;
 using UnityEngine;
 
 namespace MultiplayerShooter
 {
     [RequireComponent(typeof(Animator))]
-    public class WeaponAnimator : NetworkBehaviour
+    public class WeaponAnimator : MonoBehaviour
     {
-        [SerializeField] private ParticleSystem _muzzleEffect;
         private Animator _animator;
         private readonly int _shotAnimation = Animator.StringToHash("Shot");
 
-        [Rpc(SendTo.Everyone)]
-        public void PlayShotRpc()
+        public void PlayShot()
         {
             _animator.Play(_shotAnimation);
-            _muzzleEffect.Play();
         }
 
         private void Awake()
