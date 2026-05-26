@@ -2624,8 +2624,6 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  _healthBar: {fileID: 2100470412}
-  _respawnTimer: {fileID: 1818738424}
   _hud: {fileID: 1839984922}
 --- !u!4 &2108981398
 Transform:
