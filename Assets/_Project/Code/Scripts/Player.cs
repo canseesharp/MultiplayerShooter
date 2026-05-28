@@ -1,7 +1,9 @@
 using MultiplayerShooter.SO;
+using MultiplayerShooter.UI;
 using UnityEngine;
 using Unity.Cinemachine;
 using Unity.Netcode;
+using VContainer;
 
 namespace MultiplayerShooter
 {
@@ -20,6 +22,7 @@ namespace MultiplayerShooter
         private Movement _movement;
         private Jump _jump;
         private WeaponController _weaponController;
+        [Inject] private GameMenuUI _gameMenuUI;
 
         public override void OnNetworkSpawn()
         {
@@ -39,13 +42,19 @@ namespace MultiplayerShooter
             _playerAnimator = new(_animator);
             _weaponController = GetComponent<WeaponController>();
             _weaponController.EquipWeapon(_startWeapon);
+            VContainerReference.Container.Inject(this);
         }
 
         private void OnEnable()
         {
-            _input.Enable();
+            if (_gameMenuUI.gameObject.activeSelf == false)
+            {
+                _input.Enable();
+            }
             _input.Jumped += OnJump;
             _input.Shot += _weaponController.Use;
+            _input.GameMenuOpened += OnGameMenuOpened;
+            _gameMenuUI.ActivityChanged += OnActivityChanged;
         }
 
         private void OnDisable()
@@ -53,6 +62,8 @@ namespace MultiplayerShooter
             _input.Disable();
             _input.Jumped -= OnJump;
             _input.Shot -= _weaponController.Use;
+            _input.GameMenuOpened -= OnGameMenuOpened;
+            _gameMenuUI.ActivityChanged += OnActivityChanged;
         }
 
         private void Update()
@@ -91,6 +102,23 @@ namespace MultiplayerShooter
                 _playerAnimator.TriggerJump();
                 _jump.Do();
             }
+        }
+
+        private void OnActivityChanged(bool isActive)
+        {
+            if (isActive)
+            {
+                _input.Disable();
+            }
+            else
+            {
+                _input.Enable();
+            }
+        }
+
+        private void OnGameMenuOpened()
+        {
+            _gameMenuUI.gameObject.SetActive(true);
         }
     }
 }

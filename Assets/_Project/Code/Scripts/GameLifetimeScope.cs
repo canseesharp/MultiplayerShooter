@@ -8,12 +8,13 @@ namespace MultiplayerShooter
     public class GameLifetimeScope : LifetimeScope
     {
         [SerializeField] private HUD _hud;
+        [SerializeField] private GameMenuUI _gameMenu;
 
         protected override void Configure(IContainerBuilder builder)
         {
-            VContainerReference.GameLifetimeScope = this;
-
             builder.RegisterInstance(_hud);
+
+            builder.RegisterInstance(_gameMenu);
         }
     }
 }
