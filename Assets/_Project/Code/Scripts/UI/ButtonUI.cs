@@ -6,13 +6,13 @@ namespace MultiplayerShooter.UI
     [RequireComponent(typeof(Button))]
     public abstract class ButtonUI : MonoBehaviour
     {
-        private Button _button;
+        protected Button Button;
 
-        private void Awake() => _button = GetComponent<Button>();
+        private void Awake() => Button = GetComponent<Button>();
 
-        private void OnEnable() => _button.onClick.AddListener(OnButtonClick);
+        protected virtual void OnEnable() => Button.onClick.AddListener(OnButtonClick);
 
-        private void OnDisable() => _button.onClick.RemoveListener(OnButtonClick);
+        protected virtual void OnDisable() => Button.onClick.RemoveListener(OnButtonClick);
 
         protected abstract void OnButtonClick();
     }

@@ -1,17 +1,31 @@
+using UnityEngine;
 using VContainer;
 
 namespace MultiplayerShooter
 {
-    public class VContainerReference
+    [RequireComponent(typeof(GameLifetimeScope))]
+    public class VContainerReference : MonoBehaviour
     {
-        public static GameLifetimeScope _gameLifetimeScope;
+        private void Awake() => Container = GetComponent<GameLifetimeScope>().Container;
 
-        public static GameLifetimeScope GameLifetimeScope 
+        private static IObjectResolver _objectResolver;
+
+        public static IObjectResolver Container
         {
-            get => _gameLifetimeScope; 
-            set => _gameLifetimeScope ??= value;
+            get => _objectResolver;
+            set
+            {
+                if (_objectResolver != null)
+                {
+                    throw new System.Exception("There are more than one VContainerReferences");
+                }
+                _objectResolver = value;
+            }
         }
 
-        public static IObjectResolver Container => _gameLifetimeScope.Container;
+        private void OnDestroy()
+        {
+            _objectResolver = null;
+        }
     }
 }
