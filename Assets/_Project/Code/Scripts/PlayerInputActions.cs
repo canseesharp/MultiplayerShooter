@@ -127,6 +127,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GameMenuOpen"",
+                    ""type"": ""Button"",
+                    ""id"": ""65199dcb-68d6-4819-8461-b9ab99e8fadc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -217,6 +226,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""12548cd5-5ed9-4c24-9a05-0450b305f7ff"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Mouse&Keyboard"",
+                    ""action"": ""GameMenuOpen"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -246,6 +266,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_Looking = m_Player.FindAction("Looking", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        m_Player_GameMenuOpen = m_Player.FindAction("GameMenuOpen", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -330,6 +351,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_Looking;
     private readonly InputAction m_Player_Shoot;
+    private readonly InputAction m_Player_GameMenuOpen;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -357,6 +379,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Shoot".
         /// </summary>
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/GameMenuOpen".
+        /// </summary>
+        public InputAction @GameMenuOpen => m_Wrapper.m_Player_GameMenuOpen;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -395,6 +421,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
+            @GameMenuOpen.started += instance.OnGameMenuOpen;
+            @GameMenuOpen.performed += instance.OnGameMenuOpen;
+            @GameMenuOpen.canceled += instance.OnGameMenuOpen;
         }
 
         /// <summary>
@@ -418,6 +447,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
+            @GameMenuOpen.started -= instance.OnGameMenuOpen;
+            @GameMenuOpen.performed -= instance.OnGameMenuOpen;
+            @GameMenuOpen.canceled -= instance.OnGameMenuOpen;
         }
 
         /// <summary>
@@ -499,5 +531,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnShoot(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "GameMenuOpen" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGameMenuOpen(InputAction.CallbackContext context);
     }
 }
