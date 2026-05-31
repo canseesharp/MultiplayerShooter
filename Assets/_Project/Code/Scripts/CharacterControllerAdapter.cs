@@ -12,7 +12,11 @@ namespace MultiplayerShooter
 
         public void Move(Vector3 direction) => _frameMovement += direction;
 
-        public void EnableOnlyController() => _characterController.enabled = true;
+        public void SetActivityByOwnership(bool isOwner) 
+        {
+            enabled = isOwner;
+            _characterController.enabled = true;
+        }
 
         private void Awake()
         {
