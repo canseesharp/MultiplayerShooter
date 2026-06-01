@@ -25,7 +25,7 @@ namespace MultiplayerShooter
 
         public override void OnNetworkDespawn()
         {
-            if (IsServer)
+            if (IsServer == true)
             {
                 NetworkManager.Singleton.OnClientConnectedCallback -= SpawnPlayer;
             }

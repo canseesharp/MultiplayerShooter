@@ -25,7 +25,7 @@ namespace MultiplayerShooter
 
         public void TryJump()
         {
-            if (_controllerAdapter.IsGrounded)
+            if (_controllerAdapter.IsGrounded == true)
             {
                 _playerAnimator.TriggerJump();
                 _jump.Do();
@@ -70,12 +70,12 @@ namespace MultiplayerShooter
 
         private void HandleGravity()
         {
-            if (_jump.IsJumping)
+            if (_jump.IsJumping == true)
             {
                 return;
             }
 
-            if (_controllerAdapter.IsGrounded)
+            if (_controllerAdapter.IsGrounded == true)
             {
                 _controllerAdapter.Move(Time.deltaTime * 2f * Vector3.down);
             }

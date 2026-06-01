@@ -12,7 +12,7 @@ namespace MultiplayerShooter
 
         public void PlayFootstep()
         {
-            if (_audioSource.isPlaying)
+            if (_audioSource.isPlaying == true)
             {
                 return;
             }
