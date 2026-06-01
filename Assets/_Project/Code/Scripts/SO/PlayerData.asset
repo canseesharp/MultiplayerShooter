@@ -15,7 +15,7 @@ MonoBehaviour:
   <Health>k__BackingField: 100
   <RespawnTime>k__BackingField: 5
   <Speed>k__BackingField: 5
-  <MouseSensativity>k__BackingField: 50
+  <MouseSensativity>k__BackingField: 20
   <JumpHeight>k__BackingField: 2
   <JumpDuration>k__BackingField: 0.3
   <JumpCurve>k__BackingField:

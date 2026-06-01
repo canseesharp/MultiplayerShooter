@@ -52,7 +52,7 @@ namespace MultiplayerShooter
             _input.Jumped -= _controller.TryJump;
             _input.Shot -= _weaponController.Use;
             _input.GameMenuOpened -= _gameMenuPresenter.ShowMenu;
-            _gameMenuPresenter.ActivityChanged += OnActivityChanged;
+            _gameMenuPresenter.ActivityChanged -= OnActivityChanged;
         }
 
         private void Update()

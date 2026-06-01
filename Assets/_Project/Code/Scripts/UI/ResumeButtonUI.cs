@@ -1,15 +1,11 @@
 using Unity.Netcode;
+using UnityEngine;
 
 namespace MultiplayerShooter.UI
 {
     public class ResumeButtonUI : ButtonUI
     {
-        private GameMenuUI _gameMenu;
-
-        public void Init(GameMenuUI gameMenu)
-        {
-            _gameMenu = gameMenu;
-        }
+        [SerializeField] private GameMenuUI _gameMenu;
 
         protected override void OnEnable()
         {
