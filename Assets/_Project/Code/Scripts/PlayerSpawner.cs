@@ -15,11 +15,20 @@ namespace MultiplayerShooter
         {
             if (IsServer == false)
             {
+                enabled = false;
                 return;
             }
 
             _playerFactory = new();
             NetworkManager.Singleton.OnClientConnectedCallback += SpawnPlayer;
+        }
+
+        public override void OnNetworkDespawn()
+        {
+            if (IsServer)
+            {
+                NetworkManager.Singleton.OnClientConnectedCallback -= SpawnPlayer;
+            }
         }
 
         private void SpawnPlayer(ulong id)
