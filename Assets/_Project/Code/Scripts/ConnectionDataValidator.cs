@@ -16,7 +16,7 @@ namespace MultiplayerShooter
                 return true;
             }
 
-            if (IPAddress.TryParse(adress, out IPAddress iPAddress) 
+            if (IPAddress.TryParse(adress, out IPAddress iPAddress) == true 
                     && iPAddress.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
             {
                 validAddress = adress;
@@ -35,7 +35,7 @@ namespace MultiplayerShooter
                 return true;
             }
 
-            if (ushort.TryParse(port, out ushort parsedPort))
+            if (ushort.TryParse(port, out ushort parsedPort) == true)
             {
                 validPort = parsedPort;
                 return true;

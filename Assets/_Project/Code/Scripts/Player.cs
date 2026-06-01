@@ -48,7 +48,10 @@ namespace MultiplayerShooter
 
         private void OnDisable()
         {
-            _input.Disable();
+            if (IsOwner == true)
+            {
+                _input.Disable();
+            }
             _input.Jumped -= _controller.TryJump;
             _input.Shot -= _weaponController.Use;
             _input.GameMenuOpened -= _gameMenuPresenter.ShowMenu;
